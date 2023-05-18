@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 export default function Checkbox({ checked }: { checked: boolean }) {
 	const [isChecked, setIsChecked] = useState(checked);
-	console.log('IsChecked', isChecked);
 	
 	return (
 		<div className="inline">
