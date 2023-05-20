@@ -1,40 +1,14 @@
 import InputAdd from "@/components/InputAdd";
 import ContainerTodo from "@/components/ContainerTodos";
-
-const allTodos = [{
-	title: "My TodoComponet",
-	_id: "1",
-	tasks: [{content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, ],
-},{
-	title: "My TodoComponet",
-	_id: "1",
-	tasks: [{content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, ],
-},{
-	title: "My TodoComponet",
-	_id: "1",
-	tasks: [{content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, ],
-},{
-	title: "My TodoComponet",
-	_id: "1",
-	tasks: [{content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, ],
-},{
-	title: "My TodoComponet",
-	_id: "1",
-	tasks: [{content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, ],
-},{
-	title: "My TodoComponet",
-	_id: "1",
-	tasks: [{content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, ],
-},{
-	title: "My TodoComponet",
-	_id: "1",
-	tasks: [{content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, {content: "My task component", isComplete: true, _id: "1" }, ],
-},];
+import { useContext } from "react";
+import { ContextDataTodo } from "@/context/DataTodoContext";
 
 export default function Home() {
+	const allTodos = useContext(ContextDataTodo);
+
 	return (
 		<main className={`flex h-screen flex-col items-center justify-between`}>
-			<ContainerTodo allTodos={allTodos}/>
+			<ContainerTodo allTodos={allTodos.DataTodo} />
 			<InputAdd />
 		</main>
 	);
