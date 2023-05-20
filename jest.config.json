@@ -1,0 +1,5 @@
+{
+	"testEnvironment": "jsdom",
+	"testPathIgnorePatterns": ["/node_mudules", "/.next"],
+	"setupFilesAfterEnv": ["<rootDir>/.jest/setup-tests.js"]
+}
