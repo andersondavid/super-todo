@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState, useRef, useEffect } from "react";
+import React, { ChangeEvent, useState } from "react";
 import AddButton from "./components/AddButton";
 
 export default function InputAdd() {
