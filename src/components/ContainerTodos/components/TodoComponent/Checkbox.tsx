@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 
-export default function Checkbox({ checked }: { checked: boolean }) {
+type PropTypes = {
+	checked: boolean;
+	setChecked: (arg0: boolean) => void;
+};
+
+export default function Checkbox({ checked, setChecked }: PropTypes) {
 	const [isChecked, setIsChecked] = useState(checked);
 	const handleChange = () => {
 		setIsChecked(!isChecked);
+		setChecked(isChecked);
 	};
 	return (
 		<div className="inline">
