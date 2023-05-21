@@ -3,58 +3,58 @@ import React, { createContext } from "react";
 const DataTodo: ToDoContent[] = [
 	{
 		title: "My TodoComponet",
-		_id: "1",
+		_id: 1,
 		tasks: [
-			{ content: "My task component", isComplete: true, _id: "1" },
-			{ content: "My task component", isComplete: true, _id: "1" },
+			{ content: "My task component", isComplete: true, _id: 1 },
+			{ content: "My task component", isComplete: true, _id: 2 },
 		],
 	},
 	{
 		title: "My TodoComponet",
-		_id: "1",
+		_id: 2,
 		tasks: [
-			{ content: "My task component", isComplete: true, _id: "1" },
-			{ content: "My task component", isComplete: true, _id: "1" },
+			{ content: "My task component", isComplete: true, _id: 1 },
+			{ content: "My task component", isComplete: true, _id: 2 },
 		],
 	},
 	{
 		title: "My TodoComponet",
-		_id: "1",
+		_id: 3,
 		tasks: [
-			{ content: "My task component", isComplete: true, _id: "1" },
-			{ content: "My task component", isComplete: true, _id: "1" },
+			{ content: "My task component", isComplete: true, _id: 1 },
+			{ content: "My task component", isComplete: true, _id: 2 },
 		],
 	},
 	{
 		title: "My TodoComponet",
-		_id: "1",
+		_id: 4,
 		tasks: [
-			{ content: "My task component", isComplete: true, _id: "1" },
-			{ content: "My task component", isComplete: true, _id: "1" },
+			{ content: "My task component", isComplete: true, _id: 1 },
+			{ content: "My task component", isComplete: true, _id: 2 },
 		],
 	},
 	{
 		title: "My TodoComponet",
-		_id: "1",
+		_id: 5,
 		tasks: [
-			{ content: "My task component", isComplete: true, _id: "1" },
-			{ content: "My task component", isComplete: true, _id: "1" },
+			{ content: "My task component", isComplete: true, _id: 1 },
+			{ content: "My task component", isComplete: true, _id: 2 },
 		],
 	},
 	{
 		title: "My TodoComponet",
-		_id: "1",
+		_id: 6,
 		tasks: [
-			{ content: "My task component", isComplete: true, _id: "1" },
-			{ content: "My task component", isComplete: true, _id: "1" },
+			{ content: "My task component", isComplete: true, _id: 1 },
+			{ content: "My task component", isComplete: true, _id: 2 },
 		],
 	},
 	{
 		title: "My TodoComponet",
-		_id: "1",
+		_id: 7,
 		tasks: [
-			{ content: "My task component", isComplete: true, _id: "1" },
-			{ content: "My task component", isComplete: true, _id: "1" },
+			{ content: "My task component", isComplete: true, _id: 1 },
+			{ content: "My task component", isComplete: true, _id: 2 },
 		],
 	},
 ];
