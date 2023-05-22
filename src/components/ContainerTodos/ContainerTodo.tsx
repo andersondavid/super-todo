@@ -9,7 +9,7 @@ export default function ContainerTodo() {
 		<div className="w-full h-screen overflow-auto scrollbar-hide">
 			<div className="max-w-4xl m-auto">
 				{dataTodo.map((todo) => (
-					<TodoComponent tasks={todo.tasks} _id={todo._id} key={todo._id} />
+					<TodoComponent tasks={todo.tasks} _id={todo._id} key={todo._id} title={todo.title}/>
 				))}
 			</div>
 		</div>

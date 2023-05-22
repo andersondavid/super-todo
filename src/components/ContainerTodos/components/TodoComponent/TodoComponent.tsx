@@ -10,7 +10,7 @@ type PropsTypes = {
 export default function TodoComponent({ _id, tasks, title }: PropsTypes) {
 	return (
 		<div className="my-6">
-			<div className="shadow-md shadow-slate-400 w-full bg-slate-100 rounded-3xl p-10 pb-6 text-gray-900 overflow-hidden resize-none">
+			<div className="shadow-md shadow-slate-400 w-full bg-slate-100 rounded-3xl p-6 text-gray-900 overflow-hidden resize-none">
 				{title && (
 					<Title
 						content={title}

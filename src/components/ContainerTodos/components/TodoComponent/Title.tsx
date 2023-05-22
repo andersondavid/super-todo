@@ -13,7 +13,7 @@ export function Title(props: TitlePropTypes) {
 	};
 
 	return (
-		<h2 className="font-bold text-3xl">
+		<h2 className="font-bold text-3xl p-2">
 			<Checkbox checked={props.isComplete} setChecked={setChecked} />
 			<span className="m-2 text-gray-700a">{props.content}</span>
 		</h2>
