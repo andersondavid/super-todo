@@ -9,7 +9,7 @@ type TaskPropTypes = {
 
 export function Task(props: TaskPropTypes) {
 	const setChecked = (checked: boolean) => {
-		props.handleTaskCheckbox(props._id, checked);
+		props.handleTaskCheckbox(props._id, !checked);
 	};
 	return (
 		<span className="block text-3xl my-4 mx-10">

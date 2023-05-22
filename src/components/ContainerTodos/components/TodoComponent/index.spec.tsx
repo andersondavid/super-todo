@@ -1,19 +1,19 @@
-import { queryByText, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import TodoComponent from "./index";
 
 describe("<TodoComponent ... />", () => {
 	const mockData = {
 		title: "My TodoComponet",
-		_id: "1",
-		tasks: [{ content: "My task component", isComplete: true, _id: "1" }],
+		_id: 1,
+		tasks: [{ content: "My task component", isComplete: true, _id: 1 }],
 	};
 
 	afterEach(() => {});
 	it("should render the title", () => {
 		const { getByText } = render(
 			<TodoComponent
-				_id={mockData._id}
 				tasks={mockData.tasks}
+				_id={mockData._id}
 				title={mockData.title}
 			/>
 		);
@@ -30,12 +30,8 @@ describe("<TodoComponent ... />", () => {
 
 	it("should set the first task to true", () => {
 		const { getAllByRole } = render(
-			<TodoComponent
-				_id={mockData._id}
-				tasks={mockData.tasks}
-				title={mockData.title}
-			/>
+			<TodoComponent _id={mockData._id} tasks={mockData.tasks} />
 		);
-		expect(getAllByRole("checkbox")[1]).toBeChecked();
+		expect(getAllByRole("checkbox")[0]).toBeChecked();
 	});
 });
