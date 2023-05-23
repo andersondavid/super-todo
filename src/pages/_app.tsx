@@ -1,11 +1,11 @@
-import DataTodoContext from "@/context/DataTodoContext";
+import ContextTodoProvider from "@/context/DataTodoContext";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
-		<DataTodoContext>
+		<ContextTodoProvider>
 			<Component {...pageProps} />
-		</DataTodoContext>
+		</ContextTodoProvider>
 	);
 }

@@ -13,16 +13,24 @@ const DataTodoInitial: ToDoContent[] = [
 			{ content: "My other component", isComplete: false, _id: 2 },
 		],
 	},
+	{
+		title: "My other TodoComponet",
+		_id: 2,
+		tasks: [
+			{ content: "My task component", isComplete: false, _id: 1 },
+			{ content: "My other component", isComplete: false, _id: 2 },
+		],
+	},
 ];
 
 export const ContextDataTodo = createContext({} as ContextType);
 
-export default function DataTodoContext({
+export default function ContextTodoProvider({
 	children,
 }: {
 	children: JSX.Element;
 }) {
-	let dataTodo = DataTodoInitial;
+	let dataTodo = DataTodoInitial;	
 
 	return (
 		<ContextDataTodo.Provider value={{ dataTodo }}>
