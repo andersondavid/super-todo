@@ -1,7 +1,8 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 
 type ContextType = {
 	dataTodo: ToDoContent[];
+	changeTodoState: (todoId: number, taskId: number, value: boolean) => void;
 };
 
 const DataTodoInitial: ToDoContent[] = [
@@ -25,16 +26,32 @@ const DataTodoInitial: ToDoContent[] = [
 
 export const ContextDataTodo = createContext({} as ContextType);
 
-export default function ContextTodoProvider({
-	children,
-}: {
-	children: JSX.Element;
-}) {
-	let dataTodo = DataTodoInitial;	
+function ContextTodoProvider({ children }: { children: JSX.Element }) {
+	const [dataTodo, setDataTodo] = useState(DataTodoInitial);
+
+	const changeTodoState = (todoId: number, taskId: number, value: boolean) => {
+		let allData = dataTodo.map((todo) => {
+			if (todo._id === todoId) {
+				let newTodo = todo.tasks.map((task) => {
+					if (task._id == taskId) {
+						return { ...task, isComplete: value };
+					}
+					return task;
+				});
+
+				return {...todo, tasks: newTodo};
+			}
+			return todo;
+		});
+		setDataTodo(allData);
+		console.log("allData", JSON.stringify(allData, null, 2));
+	};
 
 	return (
-		<ContextDataTodo.Provider value={{ dataTodo }}>
+		<ContextDataTodo.Provider value={{ dataTodo, changeTodoState }}>
 			{children}
 		</ContextDataTodo.Provider>
 	);
 }
+
+export default ContextTodoProvider;

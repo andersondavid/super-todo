@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type PropTypes = {
 	checked: boolean;
@@ -8,9 +8,11 @@ type PropTypes = {
 export default function Checkbox({ checked, setChecked }: PropTypes) {
 	const [isChecked, setIsChecked] = useState(checked);
 	const handleChange = () => {
-		setIsChecked(!isChecked);
 		setChecked(isChecked);
+		setIsChecked(!isChecked);
 	};
+	useEffect(() => setIsChecked(checked), [checked]);
+	
 	return (
 		<div className="inline">
 			<label
