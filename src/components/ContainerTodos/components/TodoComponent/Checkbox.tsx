@@ -12,7 +12,7 @@ export default function Checkbox({ checked, setChecked }: PropTypes) {
 		setIsChecked(!isChecked);
 	};
 	useEffect(() => setIsChecked(checked), [checked]);
-	
+
 	return (
 		<div className="inline">
 			<label
@@ -21,6 +21,7 @@ export default function Checkbox({ checked, setChecked }: PropTypes) {
 				}`}
 			>
 				<input
+					disabled={isChecked}
 					onChange={handleChange}
 					checked={isChecked}
 					type="checkbox"

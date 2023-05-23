@@ -11,8 +11,13 @@ export function Task(props: TaskPropTypes) {
 	const setChecked = (checked: boolean) => {
 		props.handleTaskCheckbox(props._id, !checked);
 	};
+
 	return (
-		<span className="block text-3xl my-4 mx-10">
+		<span
+			className={`block text-3xl my-4 mx-10 ${
+				props.isComplete ? "line-through opacity-50" : ""
+			}`}
+		>
 			<Checkbox checked={props.isComplete} setChecked={setChecked} />
 			{props.content}
 		</span>
