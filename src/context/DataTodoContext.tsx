@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 type ContextType = {
 	dataTodo: ToDoContent[];
@@ -7,19 +7,19 @@ type ContextType = {
 
 const DataTodoInitial: ToDoContent[] = [
 	{
-		title: "My TodoComponet",
 		_id: 1,
 		tasks: [
 			{ content: "My task component", isComplete: false, _id: 1 },
 			{ content: "My other component", isComplete: false, _id: 2 },
+			{ content: "My other component", isComplete: false, _id: 3 },
 		],
 	},
 	{
-		title: "My other TodoComponet",
 		_id: 2,
 		tasks: [
 			{ content: "My task component", isComplete: false, _id: 1 },
 			{ content: "My other component", isComplete: false, _id: 2 },
+			{ content: "My other component", isComplete: false, _id: 3 },
 		],
 	},
 ];
@@ -43,9 +43,11 @@ function ContextTodoProvider({ children }: { children: JSX.Element }) {
 			}
 			return todo;
 		});
-		setDataTodo(allData);
-		console.log("allData", JSON.stringify(allData, null, 2));
+		setDataTodo(allData)
 	};
+
+	console.log('dataTodoProvider', JSON.stringify(dataTodo, null, 2));
+	
 
 	return (
 		<ContextDataTodo.Provider value={{ dataTodo, changeTodoState }}>

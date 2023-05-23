@@ -1,6 +1,5 @@
 type ToDoContent = {
 	_id: number;
-	title?: string;
 	tasks: TaskContent[];
 };
 

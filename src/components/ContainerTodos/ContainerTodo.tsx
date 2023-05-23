@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import TodoComponent from "./components/TodoComponent";
 import { ContextDataTodo } from "@/context/DataTodoContext";
 
@@ -9,7 +9,7 @@ export default function ContainerTodo() {
 		<div className="w-full h-screen overflow-auto scrollbar-hide">
 			<div className="max-w-4xl m-auto">
 				{dataTodo.map((todo) => (
-					<TodoComponent tasks={todo.tasks} _id={todo._id} key={todo._id} title={todo.title} changeTodoState={changeTodoState}/>
+					<TodoComponent tasks={todo.tasks} _id={todo._id} key={todo._id} changeTodoState={changeTodoState}/>
 				))}
 			</div>
 		</div>

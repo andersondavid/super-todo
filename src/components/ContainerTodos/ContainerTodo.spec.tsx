@@ -5,9 +5,7 @@ import ContainerTodo from "./ContainerTodo";
 describe.skip("<ContainerTodo ... />", () => {
 	it("renderiza corretamente com um mock de ContextTodoProvider", () => {
 		const { findByText, findAllByText } = render(
-			<ContextTodoProvider>
 				<ContainerTodo />
-			</ContextTodoProvider>
 		);
 
 		expect(findByText("My TodoComponet")).toBeInTheDocument();
