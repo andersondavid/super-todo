@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useContext, useEffect, useState } from "react";
 import AddButton from "./components/AddButton";
+import FakeCheckbox from "./components/FakeCheckbox";
 
 import { ContextDataTodo } from "@/context/DataTodoContext";
 
@@ -20,13 +21,13 @@ export default function InputAdd() {
 	const handleAddButtonClick = () => {
 		const taskArray: TaskContent[] = textValue
 			.split("\n")
-			.filter(task => task != '')
+			.filter((task) => task != "")
 			.map((task, index) => {
-					return {
-						_id: index + 1,
-						isComplete: false,
-						content: task,
-					};
+				return {
+					_id: index + 1,
+					isComplete: false,
+					content: task,
+				};
 			});
 
 		console.log("taskArray", taskArray);
@@ -42,15 +43,20 @@ export default function InputAdd() {
 	};
 
 	return (
-		<div className="w-full flex justify-center max-w-4xl py-8 relative">
-			<textarea
-				value={textValue}
-				onChange={(e) => handleInputChange(e)}
-				rows={numRows}
-				className="outline-0 shadow-md shadow-slate-400 w-full bg-white rounded-3xl p-8 text-gray-900 text-3xl overflow-hidden resize-none"
-			/>
-			<div className="absolute right-2 bottom-10">
-				<AddButton onClick={handleAddButtonClick} />
+		<div className="w-full max-w-4xl py-8">
+			<div className="flex shadow-md shadow-slate-400 justify-center relative bg-white rounded-3xl p-2">
+				<div className="p-2 ml-6">
+					<FakeCheckbox textValue={textValue} />
+				</div>
+				<textarea
+					value={textValue}
+					onChange={(e) => handleInputChange(e)}
+					rows={numRows}
+					className="outline-0 w-full leading-[1.60em] p-5 pl-2 text-gray-900 text-3xl overflow-hidden resize-none"
+				/>
+				<div className="p-1">
+					<AddButton onClick={handleAddButtonClick} />
+				</div>
 			</div>
 		</div>
 	);

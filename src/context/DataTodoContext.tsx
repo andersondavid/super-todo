@@ -5,24 +5,7 @@ type ContextType = {
 	changeDataTodo: (dataTodo: ToDoContent[]) => void;
 };
 
-const DataTodoInitial: ToDoContent[] = [
-	{
-		_id: 1,
-		tasks: [
-			{ content: "My task component", isComplete: false, _id: 1 },
-			{ content: "My other component", isComplete: false, _id: 2 },
-			{ content: "My other component", isComplete: false, _id: 3 },
-		],
-	},
-	{
-		_id: 2,
-		tasks: [
-			{ content: "My task component", isComplete: false, _id: 1 },
-			{ content: "My other component", isComplete: false, _id: 2 },
-			{ content: "My other component", isComplete: false, _id: 3 },
-		],
-	},
-];
+const DataTodoInitial: ToDoContent[] = [];
 
 export const ContextDataTodo = createContext({} as ContextType);
 
