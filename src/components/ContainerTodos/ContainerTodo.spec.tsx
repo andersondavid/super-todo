@@ -1,14 +1,48 @@
+import React, { ReactElement } from "react";
 import { render } from "@testing-library/react";
-import ContextTodoProvider from "../../context/DataTodoContext";
+
+import { ContextDataTodo } from "@/context/DataTodoContext";
 import ContainerTodo from "./ContainerTodo";
 
-describe.skip("<ContainerTodo ... />", () => {
-	it("renderiza corretamente com um mock de ContextTodoProvider", () => {
-		const { findByText, findAllByText } = render(
-				<ContainerTodo />
-		);
+const mockContextData = [
+	{
+		_id: 1,
+		tasks: [
+			{
+				_id: 1,
+				isComplete: false,
+				content: "mock task",
+			},
+			{
+				_id: 2,
+				isComplete: true,
+				content: "second mock task",
+			},
+		],
+	},
+];
 
-		expect(findByText("My TodoComponet")).toBeInTheDocument();
-		expect(findAllByText("TodoComponet").then((d) => d.length)).toBe(2);
+const changeDataTodo = () => {
+	jest.fn();
+};
+
+const wrapper = ({ children }: { children: JSX.Element }) => (
+	<ContextDataTodo.Provider
+		value={{ dataTodo: mockContextData, changeDataTodo }}
+	>
+		{children}
+	</ContextDataTodo.Provider>
+);
+
+describe("<ContainerTodo ... />", () => {
+	it("Render a simple task", () => {
+		const { getByText } = render(<ContainerTodo />, { wrapper });
+		expect(getByText(/^mock task/)).toBeInTheDocument();
+	});
+
+	it("Second task should complete", () => {
+		const { queryAllByRole } = render(<ContainerTodo />, { wrapper });
+		const checkbox = queryAllByRole('checkbox')[1] as HTMLInputElement
+		expect(checkbox.checked).toBe(true)
 	});
 });
