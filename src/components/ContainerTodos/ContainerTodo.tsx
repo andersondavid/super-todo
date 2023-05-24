@@ -25,7 +25,7 @@ export default function ContainerTodo() {
 	return (
 		<div className="w-full h-screen overflow-auto scrollbar-hide">
 			<div className="max-w-4xl m-auto">
-				{dataTodo.map((todo) => (
+				{dataTodo && dataTodo.map((todo) => (
 					<TodoComponent tasks={todo.tasks} _id={todo._id} key={todo._id} changeTodoState={changeTodoState}/>
 				))}
 			</div>
