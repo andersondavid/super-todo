@@ -27,7 +27,8 @@ export default function ContainerTodo() {
 			<div className="max-w-4xl m-auto">
 				{dataTodo && dataTodo.map((todo) => (
 					<TodoComponent tasks={todo.tasks} _id={todo._id} key={todo._id} changeTodoState={changeTodoState}/>
-				))}
+				)).reverse()}
+				{dataTodo.length == 0 && <div className="text-3xl text-center pt-20 opacity-50">Nenhuma tarefa. Adicione agora!</div>}
 			</div>
 		</div>
 	);

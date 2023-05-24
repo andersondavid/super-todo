@@ -30,15 +30,12 @@ export default function InputAdd() {
 				};
 			});
 
-		console.log("taskArray", taskArray);
-
 		const newTodo: ToDoContent = {
 			_id: dataTodo.length + 1,
 			tasks: taskArray,
 		};
 
-		changeDataTodo([...dataTodo, newTodo]);
-
+		changeDataTodo([...dataTodo, newTodo]);		
 		setTextValue("");
 	};
 

@@ -42,7 +42,18 @@ describe("<ContainerTodo ... />", () => {
 
 	it("Second task should complete", () => {
 		const { queryAllByRole } = render(<ContainerTodo />, { wrapper });
-		const checkbox = queryAllByRole('checkbox')[1] as HTMLInputElement
-		expect(checkbox.checked).toBe(true)
+		const checkbox = queryAllByRole("checkbox")[1] as HTMLInputElement;
+		expect(checkbox.checked).toBe(true);
+	});
+
+	it("Message for no tasks", () => {
+		const { getByText } = render(
+			<ContextDataTodo.Provider
+				value={{ dataTodo: [], changeDataTodo }}
+			>
+				<ContainerTodo />
+			</ContextDataTodo.Provider>
+		);
+		expect(getByText(/^Nenhuma tarefa/)).toBeInTheDocument();
 	});
 });
