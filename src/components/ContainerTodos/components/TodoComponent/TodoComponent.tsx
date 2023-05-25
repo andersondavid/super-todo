@@ -12,9 +12,11 @@ function TodoComponent({ _id, tasks, changeTodoState }: PropsTypes) {
 		changeTodoState(_id, taskId, value);
 	};
 
+	const fullyComplete = tasks.every((task) => task.isComplete)
+
 	return (
-		<div className="my-6">
-			<div className="shadow-md shadow-slate-400 w-full bg-slate-100 rounded-3xl p-6 text-gray-900 overflow-hidden resize-none">
+		<div className="my-4">
+			<div className={`${fullyComplete ? '' : 'shadow-md shadow-slate-400'} bg-slate-100 w-full rounded-3xl p-6 text-gray-900 overflow-hidden resize-none`}>
 				{tasks.map((task) => (
 					<Task
 						content={task.content}
