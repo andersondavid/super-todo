@@ -1,4 +1,10 @@
-import React, { ChangeEvent, useContext, useEffect, useState } from "react";
+import React, {
+	ChangeEvent,
+	useContext,
+	useEffect,
+	useState,
+	useRef,
+} from "react";
 import AddButton from "./components/AddButton";
 import FakeCheckbox from "./components/FakeCheckbox";
 
@@ -8,6 +14,7 @@ export default function InputAdd() {
 	const { dataTodo, changeDataTodo } = useContext(ContextDataTodo);
 	const [textValue, setTextValue] = useState<string>("");
 	const [numRows, setNumRows] = useState<number>(1);
+	const textareRef = useRef<HTMLTextAreaElement>(null);
 
 	useEffect(() => {
 		const splitTaskText = textValue.split("\n");
@@ -35,8 +42,13 @@ export default function InputAdd() {
 			tasks: taskArray,
 		};
 
-		changeDataTodo([...dataTodo, newTodo]);		
-		setTextValue("");
+		if (taskArray.length > 0) {
+			changeDataTodo([...dataTodo, newTodo]);
+			setTextValue("");
+			textareRef.current?.focus()
+		} else {
+			alert("Você precisa de pelo menos uma tarefa");
+		}
 	};
 
 	return (
@@ -46,6 +58,7 @@ export default function InputAdd() {
 					<FakeCheckbox textValue={textValue} />
 				</div>
 				<textarea
+					ref={textareRef}
 					value={textValue}
 					onChange={(e) => handleInputChange(e)}
 					rows={numRows}
