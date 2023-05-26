@@ -3,24 +3,7 @@ import TodoComponent from "./components/TodoComponent";
 import { ContextDataTodo } from "@/context/DataTodoContext";
 
 export default function ContainerTodo() {
-	const { dataTodo, changeDataTodo } = useContext(ContextDataTodo);
-
-	const changeTodoState = (todoId: number, taskId: number, value: boolean) => {
-		let newData = dataTodo.map((todo) => {
-			if (todo._id === todoId) {
-				let newTodo = todo.tasks.map((task) => {
-					if (task._id == taskId) {
-						return { ...task, isComplete: value };
-					}
-					return task;
-				});
-
-				return { ...todo, tasks: newTodo };
-			}
-			return todo;
-		});
-		changeDataTodo(newData);
-	};
+	const { dataTodo } = useContext(ContextDataTodo);
 
 	const todosIncomplete: ToDoContent[] = dataTodo.filter((todo) => {
 		return todo.tasks.some((task) => task.isComplete == false);
@@ -40,7 +23,6 @@ export default function ContainerTodo() {
 								tasks={todo.tasks}
 								_id={todo._id}
 								key={todo._id}
-								changeTodoState={changeTodoState}
 							/>
 						))
 						.reverse()}
@@ -56,7 +38,6 @@ export default function ContainerTodo() {
 								tasks={todo.tasks}
 								_id={todo._id}
 								key={todo._id}
-								changeTodoState={changeTodoState}
 							/>
 						))
 						.reverse()}

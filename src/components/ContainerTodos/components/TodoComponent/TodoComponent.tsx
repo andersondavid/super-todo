@@ -1,22 +1,30 @@
+import { useContext } from "react";
 import { Task } from "./Task";
+import { ContextDataTodo } from "@/context/DataTodoContext";
 
 type PropsTypes = {
 	_id: number;
 	tasks: TaskContent[];
-	changeTodoState: (todoId: number, taskId: number, value: boolean) => void;
 };
 
-function TodoComponent({ _id, tasks, changeTodoState }: PropsTypes) {
-
+function TodoComponent({ _id, tasks }: PropsTypes) {
+	const { changeDataTodo } = useContext(ContextDataTodo);
 	const handleTaskCheckBox = (taskId: number, value: boolean) => {
-		changeTodoState(_id, taskId, value);
+		changeDataTodo({
+			type: "UPDATE_TODO",
+			payload: { todoId: _id, taskId, value },
+		});
 	};
 
-	const fullyComplete = tasks.every((task) => task.isComplete)
+	const fullyComplete = tasks.every((task) => task.isComplete);
 
 	return (
 		<div className="my-4">
-			<div className={`${fullyComplete ? '' : 'shadow-md shadow-slate-400'} bg-slate-100 w-full rounded-3xl p-6 text-gray-900 overflow-hidden resize-none`}>
+			<div
+				className={`${
+					fullyComplete ? "" : "shadow-md shadow-slate-400"
+				} bg-slate-100 w-full rounded-3xl p-6 text-gray-900 overflow-hidden resize-none`}
+			>
 				{tasks.map((task) => (
 					<Task
 						content={task.content}

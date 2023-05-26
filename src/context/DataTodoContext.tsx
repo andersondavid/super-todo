@@ -2,7 +2,7 @@ import { createContext } from "react";
 
 type ContextType = {
 	dataTodo: ToDoContent[];
-	changeDataTodo: (dataTodo: ToDoContent[]) => void;
+	changeDataTodo: (action: ActionType) => void;
 };
 
 export const DataTodoInitial: ToDoContent[] = [];

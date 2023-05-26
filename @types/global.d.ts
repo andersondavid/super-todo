@@ -8,3 +8,17 @@ type TaskContent = {
 	content: string;
 	isComplete: boolean;
 };
+
+
+
+type UpdateTodoDataType = {
+	todoId: number;
+	taskId: number;
+	value: boolean
+}
+
+
+type ActionType = {
+	type: 'ADD_TODO' | 'REMOVE_TODO' | 'UPDATE_TODO';
+	payload: string | UpdateTodoDataType
+}

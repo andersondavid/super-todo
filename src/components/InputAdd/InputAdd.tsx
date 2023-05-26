@@ -11,7 +11,7 @@ import FakeCheckbox from "./components/FakeCheckbox";
 import { ContextDataTodo } from "@/context/DataTodoContext";
 
 export default function InputAdd() {
-	const { dataTodo, changeDataTodo } = useContext(ContextDataTodo);
+	const { changeDataTodo } = useContext(ContextDataTodo);
 	const [textValue, setTextValue] = useState<string>("");
 	const [numRows, setNumRows] = useState<number>(1);
 	const textareRef = useRef<HTMLTextAreaElement>(null);
@@ -26,26 +26,13 @@ export default function InputAdd() {
 	};
 
 	const handleAddButtonClick = () => {
-		const taskArray: TaskContent[] = textValue
-			.split("\n")
-			.filter((task) => task != "")
-			.map((task, index) => {
-				return {
-					_id: index + 1,
-					isComplete: false,
-					content: task,
-				};
+		if (textValue != "") {
+			changeDataTodo({
+				type: "ADD_TODO",
+				payload: textValue,
 			});
-
-		const newTodo: ToDoContent = {
-			_id: dataTodo.length + 1,
-			tasks: taskArray,
-		};
-
-		if (taskArray.length > 0) {
-			changeDataTodo([...dataTodo, newTodo]);
 			setTextValue("");
-			textareRef.current?.focus()
+			textareRef.current?.focus();
 		} else {
 			alert("Você precisa de pelo menos uma tarefa");
 		}

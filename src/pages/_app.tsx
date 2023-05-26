@@ -1,13 +1,14 @@
-import { ContextDataTodo, DataTodoInitial } from "@/context/DataTodoContext";
-import "@/styles/globals.css";
+import { useReducer } from "react";
 import type { AppProps } from "next/app";
-import { useState } from "react";
+import "@/styles/globals.css";
+import { ContextDataTodo, DataTodoInitial } from "@/context/DataTodoContext";
+import {reducerContext, actionType} from '@/context/reducerContext'
 
 export default function App({ Component, pageProps }: AppProps) {
-	const [dataTodo, setDataTodo] = useState(DataTodoInitial);
+	const [dataTodo, dispatchTodo] = useReducer(reducerContext, DataTodoInitial);
 
-	const changeDataTodo = (dataTodo: ToDoContent[]) => {
-		setDataTodo(dataTodo);
+	const changeDataTodo = (action: actionType) => {
+		dispatchTodo(action);
 	};
 
 	return (
