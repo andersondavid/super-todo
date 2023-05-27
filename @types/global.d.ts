@@ -17,8 +17,12 @@ type UpdateTodoDataType = {
 	value: boolean
 }
 
+type RemoveTodoType = {
+	todoId: number;
+}
+
 
 type ActionType = {
 	type: 'ADD_TODO' | 'REMOVE_TODO' | 'UPDATE_TODO';
-	payload: string | UpdateTodoDataType
+	payload: string | UpdateTodoDataType | RemoveTodoType
 }

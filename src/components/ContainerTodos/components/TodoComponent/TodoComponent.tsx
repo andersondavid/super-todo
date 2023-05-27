@@ -16,10 +16,17 @@ function TodoComponent({ _id, tasks }: PropsTypes) {
 		});
 	};
 
+	const removeTodo = () => {
+		changeDataTodo({
+			type: "REMOVE_TODO",
+			payload: { todoId: _id },
+		});
+	};
+
 	const fullyComplete = tasks.every((task) => task.isComplete);
 
 	return (
-		<div className="my-4">
+		<div className="my-4 relative">
 			<div
 				className={`${
 					fullyComplete ? "" : "shadow-md shadow-slate-400"
@@ -34,6 +41,14 @@ function TodoComponent({ _id, tasks }: PropsTypes) {
 						handleTaskCheckbox={handleTaskCheckBox}
 					/>
 				))}
+				<button
+					className={`${
+						fullyComplete ? "opacity-50" : "opacity-0 hover:opacity-50"
+					} absolute font-bold right-0 bottom-0 py-4  px-6`}
+					onClick={removeTodo}
+				>
+					✕
+				</button>
 			</div>
 		</div>
 	);

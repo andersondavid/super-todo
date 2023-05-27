@@ -37,12 +37,19 @@ const addTodo = (state: ToDoContent[], payload: string) => {
 	return newTodo;
 }
 
+const removeTodo = (state: ToDoContent[], payload: UpdateTodoDataType) => {
+	const restState = state.filter((todo) => todo._id != payload.todoId)
+	return restState
+}
+
 export const reducerContext: (state: ToDoContent[], action: ActionType) => ToDoContent[] = (state, action) => {
 	switch (action.type) {
 		case 'ADD_TODO':
 			return [...state, addTodo(state, action.payload as string)]
 		case 'UPDATE_TODO':
 			return updateTodo(state, action.payload as UpdateTodoDataType)
+		case "REMOVE_TODO":
+			return removeTodo(state, action.payload as UpdateTodoDataType)
 		default:
 			return state
 	}
