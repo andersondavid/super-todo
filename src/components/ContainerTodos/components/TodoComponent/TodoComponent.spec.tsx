@@ -19,7 +19,6 @@ describe("<TodoComponent ... />", () => {
 			<TodoComponent
 				tasks={mockData.tasks}
 				_id={mockData._id}
-				changeTodoState={changeTodoState}
 			/>
 		);
 
@@ -31,7 +30,6 @@ describe("<TodoComponent ... />", () => {
 			<TodoComponent
 				_id={mockData._id}
 				tasks={mockData.tasks}
-				changeTodoState={changeTodoState}
 			/>
 		);
 		expect(getAllByRole("checkbox")[0]).toBeChecked();
