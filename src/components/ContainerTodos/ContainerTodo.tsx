@@ -15,7 +15,7 @@ export default function ContainerTodo() {
 
 	return (
 		<div className="w-full h-screen overflow-auto scrollbar-hide">
-			<div className="max-w-4xl m-auto py-4">
+			<div className="max-w-4xl m-auto py-4 p-3">
 				{todosIncomplete &&
 					todosIncomplete
 						.map((todo) => (
@@ -27,7 +27,7 @@ export default function ContainerTodo() {
 						))
 						.reverse()}
 				{todosComplete.length > 0 && (
-					<div className="text-3xl text-center opacity-50">
+					<div className="text-xl lg:text-3xl text-center opacity-50">
 						Tarefas concluidas
 					</div>
 				)}
@@ -42,7 +42,7 @@ export default function ContainerTodo() {
 						))
 						.reverse()}
 				{dataTodo.length == 0 && (
-					<div className="text-3xl text-center pt-20 opacity-50">
+					<div className="text-xl lg:text-3xl text-center pt-20 opacity-50">
 						Nenhuma tarefa. Adicione agora!
 					</div>
 				)}

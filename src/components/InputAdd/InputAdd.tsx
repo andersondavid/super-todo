@@ -39,9 +39,9 @@ export default function InputAdd() {
 	};
 
 	return (
-		<div className="w-full max-w-4xl py-8">
-			<div className="flex shadow-md shadow-slate-400 justify-center relative bg-white rounded-3xl p-2">
-				<div className="p-2 ml-6">
+		<div className="w-full max-w-4xl py-8 p-3">
+			<div className="flex shadow-md shadow-slate-400 justify-center relative bg-white rounded-3xl lg:rounded-3xl pl-2 lg:py-1 lg:px-2">
+				<div className="p-2 ml-1 lg:ml-6">
 					<FakeCheckbox textValue={textValue} />
 				</div>
 				<textarea
@@ -49,9 +49,9 @@ export default function InputAdd() {
 					value={textValue}
 					onChange={(e) => handleInputChange(e)}
 					rows={numRows}
-					className="outline-0 w-full leading-[1.60em] p-5 pl-2 text-gray-900 text-3xl overflow-hidden resize-none"
+					className="outline-0 w-full p-4 pl-2 text-gray-900 text-xl leading-8 lg:text-3xl lg:leading-[1.60em] overflow-hidden resize-none"
 				/>
-				<div className="p-1">
+				<div className="lg:p-1">
 					<AddButton onClick={handleAddButtonClick} />
 				</div>
 			</div>

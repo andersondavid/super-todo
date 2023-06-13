@@ -30,7 +30,7 @@ function TodoComponent({ _id, tasks }: PropsTypes) {
 			<div
 				className={`${
 					fullyComplete ? "" : "shadow-md shadow-slate-400"
-				} bg-slate-100 w-full rounded-3xl p-6 text-gray-900 overflow-hidden resize-none`}
+				} bg-slate-100 w-full rounded-2xl lg:rounded-3xl p-1 lg:p-6 text-gray-900 overflow-hidden resize-none`}
 			>
 				{tasks.map((task) => (
 					<Task

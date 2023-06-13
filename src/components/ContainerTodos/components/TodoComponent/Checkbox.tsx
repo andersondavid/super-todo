@@ -16,7 +16,7 @@ export default function Checkbox({ checked, setChecked }: PropTypes) {
 	return (
 		<div className="inline">
 			<label
-				className={`h-6 w-6 border-gray-500 border-4 rounded-full inline-block cursor-pointer ${
+				className={`h-4 w-4 lg:h-6 lg:w-6 border-gray-500 border-2 lg:border-4 rounded-full inline-block cursor-pointer ${
 					isChecked ? "bg-green-500 border-green-500" : ""
 				}`}
 			>

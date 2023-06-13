@@ -14,7 +14,7 @@ export function Task(props: TaskPropTypes) {
 
 	return (
 		<span
-			className={`block text-3xl my-4 mx-4 ${
+			className={`block text-xl lg:text-3xl my-4 mx-4 ${
 				props.isComplete ? "line-through opacity-50" : ""
 			}`}
 		>
