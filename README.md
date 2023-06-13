@@ -11,12 +11,15 @@ Este projeto é baseado no aplicativo **Microsoft ToDo** e construido com **Next
 Tem como proposito ser um objeto de estudos em todas as tecnologias envolvidas no projeto.
 Sinta-se livre para explorar os arquivos e adicionar ou remover seus proprios recursos.
 
+<img src="./assets/example.gif">
+
 ## 🌐 Tecnologias
 - [TypeScript](https://www.typescriptlang.org/) Superset de JavaScript com tipagem estática.
 - [ReactJS](https://reactjs.org/) Biblioteca JavaScript para construção de interfaces de usuário.
 - [Next.js](https://nextjs.org/) Framework React para desenvolvimento web avançado.
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) # Tecnologias
 - [TailwindCSS](https://tailwindcss.com/) Biblioteca para testes de componentes React.
+
 
 ## ✅ Status
 <center><h3>Finalizado, disponivel para alteração</h3></center>
