@@ -1,3 +1,4 @@
+import { create } from "@/services/api";
 
 const updateTodo = (state: ToDoContent[], payload: UpdateTodoDataType) => {
 	const { todoId, taskId, value } = payload
@@ -33,6 +34,17 @@ const addTodo = (state: ToDoContent[], payload: string) => {
 		_id: state.length + 1,
 		tasks: taskArray,
 	};
+
+	const content = taskArray.map((task) =>{
+		return {
+			isComplete: task.isComplete,
+			textTodo: task.content
+		}
+	})
+
+	create({
+		content
+	})
 
 	return newTodo;
 }
